@@ -8,6 +8,9 @@ public class Game implements Runnable {
 
     public Game() {
         new Window(this);
+
+        this.addKeyListener(new KeyInput());
+        this.addMouseLisener(new MouseInput());
     }
 
     public void update() {
