@@ -54,11 +54,13 @@ public class Keyboard extends KeyAdapter {
         if(key == KeyEvent.VK_ESCAPE) {
             switch (Launcher.gameState){
                 case Menu:
+                case GameOver:
                     System.exit(1);
                     break;
                 case Game:
                     Launcher.gameState = STATE.Paused;
                     break;
+                case Paused:
                 case Shop:
                     Launcher.gameState = STATE.Game;
                     Spawner.player();
@@ -104,7 +106,5 @@ public class Keyboard extends KeyAdapter {
             }
         }
     }
-
-}
 
 }

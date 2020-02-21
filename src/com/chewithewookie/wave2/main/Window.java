@@ -13,13 +13,18 @@ public class Window {
 
         frame = new JFrame(Launcher.TITLE);
 
+        frame.pack();
+        Insets insets = frame.getInsets();
+        width += insets.left + insets.right;
+        height += insets.top + insets.bottom;
+
         frame.setPreferredSize(new Dimension(width, height));
-        frame.setMaximumSize(new Dimension(width, height));
         frame.setMinimumSize(new Dimension(width, height));
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
+        frame.setResizable(true);
         frame.setLocationRelativeTo(null);
+//        frame.setIconImage(); // TODO add game icon
         frame.setVisible(true);
 
         frame.pack();

@@ -14,13 +14,13 @@ public class Mouse extends MouseAdapter {
 
         switch (Launcher.gameState){
             case Menu:
-                Menu.clicked(mx, my);
-                break;
-            case Game:
-                HUD.clicked(mx, my);
+                Menu.clicked(mx,my);
                 break;
             case Paused:
                 Pause.clicked(mx, my);
+                break;
+            case Game:
+                HUD.clicked(mx, my);
                 break;
             case Shop:
                 Shop.clicked(mx, my);
