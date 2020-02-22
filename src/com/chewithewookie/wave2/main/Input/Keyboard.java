@@ -55,7 +55,7 @@ public class Keyboard extends KeyAdapter {
             switch (Launcher.gameState){
                 case Menu:
                 case GameOver:
-                    System.exit(1);
+                    System.exit(0);
                     break;
                 case Game:
                     Launcher.gameState = STATE.Paused;

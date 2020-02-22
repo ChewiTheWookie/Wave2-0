@@ -10,6 +10,9 @@ public class Window {
     public Window(Game game) {
         int width = Launcher.WIDTH;
         int height = Launcher.HEIGHT;
+        ImageIcon icon = new ImageIcon("./Resourses/Images/Icon.PNG");
+
+
 
         frame = new JFrame(Launcher.TITLE);
 
@@ -24,7 +27,7 @@ public class Window {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(true);
         frame.setLocationRelativeTo(null);
-//        frame.setIconImage(); // TODO add game icon
+        frame.setIconImage(icon.getImage());
         frame.setVisible(true);
 
         frame.pack();
