@@ -6,4 +6,7 @@ public class Handler {
 
     public static LinkedList<GameObject> object = new LinkedList<GameObject>();
 
+    public static void removeObject(Player player) {
+    }
+
 }

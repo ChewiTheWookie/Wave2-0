@@ -1,5 +1,7 @@
 package com.chewithewookie.wave2.main;
 
+import com.chewithewookie.wave2.main.Display.Resize;
+import com.chewithewookie.wave2.main.Display.Window;
 import com.chewithewookie.wave2.main.Input.*;
 
 import java.awt.*;
@@ -11,7 +13,8 @@ public class Game extends Canvas implements Runnable {
     private boolean running = false;
 
     public Game() {
-        new Window(this);
+        Resize resize = new Resize();
+        new Window(this, resize);
 
         this.addKeyListener(new Keyboard());
         this.addMouseListener(new Mouse());

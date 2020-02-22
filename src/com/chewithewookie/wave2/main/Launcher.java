@@ -4,9 +4,9 @@ import com.chewithewookie.wave2.main.STATE.STATE;
 
 public class Launcher {
 
-    public static final String TITLE = "Wave 2";
-    public static final int WIDTH = 1280;
-    public static final int HEIGHT = WIDTH / 16 * 9;
+    public static final String TITLE = "Wave";
+    public static int WIDTH = 960;
+    public static int HEIGHT = WIDTH / 16 * 9;
 
     public static int speed = WIDTH / 256;
     public static int scale = WIDTH / 5;

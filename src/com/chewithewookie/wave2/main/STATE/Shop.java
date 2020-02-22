@@ -1,4 +1,4 @@
 package com.chewithewookie.wave2.main.STATE;
 
-public class Shop extends States {
+public class Shop {
 }

@@ -1,13 +1,18 @@
-package com.chewithewookie.wave2.main;
+package com.chewithewookie.wave2.main.Display;
+
+import com.chewithewookie.wave2.main.Game;
+import com.chewithewookie.wave2.main.Launcher;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 public class Window {
 
     private JFrame frame;
 
-    public Window(Game game) {
+    public Window(Game game, Resize resize) {
         int width = Launcher.WIDTH;
         int height = Launcher.HEIGHT;
         ImageIcon icon = new ImageIcon("./Resourses/Images/Icon.PNG");
@@ -31,6 +36,11 @@ public class Window {
         frame.setVisible(true);
 
         frame.pack();
+        frame.addComponentListener(new ComponentAdapter() {
+            public void componentResized(ComponentEvent e) {
+                resize.update(frame.getWidth());
+            }
+        });
 
         game.start();
     }
