@@ -4,6 +4,10 @@ import java.awt.*;
 
 public class Pause {
 
+    public static void clicked(int mx, int my) {
+
+    }
+
     public static void render(Graphics g){
 
     }

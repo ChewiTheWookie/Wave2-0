@@ -1,12 +1,13 @@
 package com.chewithewookie.wave2.main.Object;
 
 import com.chewithewookie.wave2.main.*;
+import com.chewithewookie.wave2.main.STATE.STATE;
 
 import java.awt.*;
 
 public class Player extends GameObject{
 
-    public static int playerSize = Launcher.WIDTH / 8;
+    public static int playerSize = Launcher.DistUnit / 2;
 
     public Player(int x, int y, ID id){
         super(x, y, id);
@@ -23,8 +24,10 @@ public class Player extends GameObject{
     }
 
     public void render(Graphics g) {
-        g.setColor(Color.white);
-        g.fillRect((int)x, (int)y, playerSize, playerSize);
+        if(Launcher.gameState == STATE.Game){
+            g.setColor(Color.white);
+            g.fillRect((int)x, (int)y, playerSize, playerSize);
+        }
     }
 
     public Rectangle getBounds() {

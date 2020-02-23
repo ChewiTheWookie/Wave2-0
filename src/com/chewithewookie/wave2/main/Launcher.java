@@ -13,6 +13,7 @@ public class Launcher {
     public static int speed = 5;
     public static int playerSpeed = 5;
     public static int scale = 1;
+    public static int DistUnit = 64;
     public static float diffHealthMultiplier;
 
     public static void main(String args[]){

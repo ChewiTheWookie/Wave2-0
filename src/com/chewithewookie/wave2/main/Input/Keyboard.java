@@ -22,31 +22,33 @@ public class Keyboard extends KeyAdapter {
     public void keyPressed(KeyEvent e){
         int key = e.getKeyCode();
 
-        for (int i = 0; i < Handler.object.size(); i++){
-            GameObject tempObject = Handler.object.get(i);
+        if(Launcher.gameState == STATE.Game){
+            for (int i = 0; i < Handler.object.size(); i++){
+                GameObject tempObject = Handler.object.get(i);
 
-            if(tempObject.getId() == ID.Player){
-                switch (key){
-                    case KeyEvent.VK_W:
-                    case KeyEvent.VK_UP:
-                        tempObject.setVelY(-Launcher.speed);
-                        keyDown[0] = true;
-                        break;
-                    case KeyEvent.VK_A:
-                    case KeyEvent.VK_LEFT:
-                        tempObject.setVelX(-Launcher.speed);
-                        keyDown[1] = true;
-                        break;
-                    case KeyEvent.VK_S:
-                    case KeyEvent.VK_DOWN:
-                        tempObject.setVelY(Launcher.speed);
-                        keyDown[2] = true;
-                        break;
-                    case KeyEvent.VK_D:
-                    case KeyEvent.VK_RIGHT:
-                        tempObject.setVelX(Launcher.speed);
-                        keyDown[3] = true;
-                        break;
+                if(tempObject.getId() == ID.Player){
+                    switch (key){
+                        case KeyEvent.VK_W:
+                        case KeyEvent.VK_UP:
+                            tempObject.setVelY(-Launcher.speed);
+                            keyDown[0] = true;
+                            break;
+                        case KeyEvent.VK_A:
+                        case KeyEvent.VK_LEFT:
+                            tempObject.setVelX(-Launcher.speed);
+                            keyDown[1] = true;
+                            break;
+                        case KeyEvent.VK_S:
+                        case KeyEvent.VK_DOWN:
+                            tempObject.setVelY(Launcher.speed);
+                            keyDown[2] = true;
+                            break;
+                        case KeyEvent.VK_D:
+                        case KeyEvent.VK_RIGHT:
+                            tempObject.setVelX(Launcher.speed);
+                            keyDown[3] = true;
+                            break;
+                    }
                 }
             }
         }
@@ -57,13 +59,15 @@ public class Keyboard extends KeyAdapter {
                 case GameOver:
                     System.exit(0);
                     break;
+                case DifficultyScreen:
+                    Launcher.gameState = STATE.Menu;
+                    break;
                 case Game:
                     Launcher.gameState = STATE.Paused;
                     break;
 //                case Paused: //TODO fix this after finishing difficulty settings
 //                case Shop:
 //                    Launcher.gameState = STATE.Game;
-//                    Spawner.player();
 //                    break;
             }
         }

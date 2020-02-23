@@ -17,8 +17,6 @@ public class Window {
         int height = Launcher.HEIGHT;
         ImageIcon icon = new ImageIcon("./Resourses/Images/Icon.PNG");
 
-
-
         frame = new JFrame(Launcher.TITLE);
 
         frame.pack();
@@ -27,8 +25,9 @@ public class Window {
         height += insets.top + insets.bottom;
 
         frame.setPreferredSize(new Dimension(width, height));
-        frame.setMinimumSize(new Dimension(960, 540));
+        frame.setMinimumSize(new Dimension(896, 504));
         frame.setMaximumSize(new Dimension(7680, 4320));
+        frame.setSize(new Dimension(Launcher.WIDTH, Launcher.HEIGHT));
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(true);

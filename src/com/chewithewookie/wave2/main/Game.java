@@ -50,6 +50,9 @@ public class Game extends Canvas implements Runnable {
             case Menu:
                 Menu.render(g);
                 break;
+            case DifficultyScreen:
+                DiffScreen.render(g);
+                break;
             case Game:
                 HUD.render(g);
                 break;

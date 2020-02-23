@@ -16,6 +16,9 @@ public class Mouse extends MouseAdapter {
             case Menu:
                 Menu.clicked(mx,my);
                 break;
+            case DifficultyScreen:
+                DiffScreen.clicked(mx, my);
+                break;
             case Paused:
                 Pause.clicked(mx, my);
                 break;

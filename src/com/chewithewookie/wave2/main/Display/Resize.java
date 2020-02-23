@@ -1,5 +1,6 @@
 package com.chewithewookie.wave2.main.Display;
 
+import com.chewithewookie.wave2.main.Functions;
 import com.chewithewookie.wave2.main.Launcher;
 import com.chewithewookie.wave2.main.Object.Player;
 
@@ -10,8 +11,9 @@ public class Resize {
 
         Launcher.WIDTH = width;
         Launcher.HEIGHT = height;
-        Launcher.scale = width / 1280;
+        Launcher.scale = (int) Functions.clamp((float) width / 1280, 1, 1000);
         Launcher.speed *= Launcher.scale;
+        Launcher.DistUnit *= Launcher.scale;
 
         objectUpdate();
     }
