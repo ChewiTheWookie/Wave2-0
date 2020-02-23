@@ -27,22 +27,23 @@ public class Window {
         height += insets.top + insets.bottom;
 
         frame.setPreferredSize(new Dimension(width, height));
-        frame.setMinimumSize(new Dimension(width, height));
+        frame.setMinimumSize(new Dimension(960, 540));
+        frame.setMaximumSize(new Dimension(7680, 4320));
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(true);
         frame.setLocationRelativeTo(null);
         frame.setIconImage(icon.getImage());
+        frame.add(game);
         frame.setVisible(true);
 
-        frame.pack();
+        game.start();
+
         frame.addComponentListener(new ComponentAdapter() {
             public void componentResized(ComponentEvent e) {
-                resize.update(frame.getWidth());
+                resize.update(frame.getWidth(), frame.getHeight());
             }
         });
-
-        game.start();
     }
 
 }

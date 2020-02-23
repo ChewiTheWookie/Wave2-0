@@ -60,11 +60,11 @@ public class Keyboard extends KeyAdapter {
                 case Game:
                     Launcher.gameState = STATE.Paused;
                     break;
-                case Paused:
-                case Shop:
-                    Launcher.gameState = STATE.Game;
-                    Spawner.player();
-                    break;
+//                case Paused: //TODO fix this after finishing difficulty settings
+//                case Shop:
+//                    Launcher.gameState = STATE.Game;
+//                    Spawner.player();
+//                    break;
             }
         }
     }
@@ -96,13 +96,13 @@ public class Keyboard extends KeyAdapter {
 
                 // Vertical movement
                 if(!keyDown[0] && !keyDown[2]) tempObject.setVelY(0);
-                if(keyDown[0] && !keyDown[2]) tempObject.setVelY(-5);
-                if(!keyDown[0] && keyDown[2]) tempObject.setVelY(5);
+                if(keyDown[0] && !keyDown[2]) tempObject.setVelY(-Launcher.playerSpeed);
+                if(!keyDown[0] && keyDown[2]) tempObject.setVelY(Launcher.playerSpeed);
 
                 // Horizontal movement
                 if(!keyDown[1] && !keyDown[3]) tempObject.setVelX(0);
-                if(keyDown[1] && !keyDown[3]) tempObject.setVelX(-5);
-                if(!keyDown[1] && keyDown[3]) tempObject.setVelX(5);
+                if(keyDown[1] && !keyDown[3]) tempObject.setVelX(-Launcher.playerSpeed);
+                if(!keyDown[1] && keyDown[3]) tempObject.setVelX(Launcher.playerSpeed);
             }
         }
     }

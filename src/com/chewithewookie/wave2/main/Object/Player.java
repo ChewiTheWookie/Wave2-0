@@ -4,8 +4,6 @@ import com.chewithewookie.wave2.main.*;
 
 import java.awt.*;
 
-import static com.chewithewookie.wave2.main.Object.ID.BossEnemy;
-
 public class Player extends GameObject{
 
     public static int playerSize = Launcher.WIDTH / 8;
@@ -15,6 +13,11 @@ public class Player extends GameObject{
     }
 
     public void update() {
+        x += velX;
+        y += velY;
+
+        x = Functions.clamp((int)x, 0, Launcher.WIDTH - playerSize);
+        y = Functions.clamp((int)y, 0, Launcher.HEIGHT - playerSize);
 
         collision();
     }
@@ -38,13 +41,13 @@ public class Player extends GameObject{
                 case FastEnemy:
                 case Bullet:
                     if(getBounds().intersects(tempObject.getBounds())){
-                        HUD.health -= 2;
+                        HUD.health -= 2 * Launcher.diffHealthMultiplier;
                     }
                     break;
                 case SmartEnemy:
                 case BossEnemy:
                     if(getBounds().intersects(tempObject.getBounds())){
-                        HUD.health -= 1;
+                        HUD.health -= 1 * Launcher.diffHealthMultiplier;
                     }
                     break;
             }

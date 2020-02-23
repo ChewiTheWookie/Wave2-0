@@ -3,8 +3,12 @@ package com.chewithewookie.wave2.main;
 import com.chewithewookie.wave2.main.Display.Resize;
 import com.chewithewookie.wave2.main.Display.Window;
 import com.chewithewookie.wave2.main.Input.*;
+import com.chewithewookie.wave2.main.Object.Handler;
+import com.chewithewookie.wave2.main.STATE.*;
+import com.chewithewookie.wave2.main.STATE.Menu;
 
 import java.awt.*;
+import java.awt.image.BufferStrategy;
 
 public class Game extends Canvas implements Runnable {
 
@@ -21,11 +25,46 @@ public class Game extends Canvas implements Runnable {
     }
 
     public void update() {
+        Handler.update();
 
+        if(Launcher.gameState == STATE.Game){
+            HUD.update();
+        }
     }
 
     public void render() {
+        BufferStrategy bs = this.getBufferStrategy();
+        if(bs == null){
+            this.createBufferStrategy(3);
+            return;
+        }
 
+        Graphics g = bs.getDrawGraphics();
+
+        g.setColor(Color.black);
+        g.fillRect(0, 0, Launcher.WIDTH, Launcher.HEIGHT);
+
+        Handler.render(g);
+
+        switch (Launcher.gameState){
+            case Menu:
+                Menu.render(g);
+                break;
+            case Game:
+                HUD.render(g);
+                break;
+            case Shop:
+                Shop.render(g);
+                break;
+            case Paused:
+                Pause.render(g);
+                break;
+            case GameOver:
+                GameOver.render(g);
+        }
+
+        g.dispose();
+        bs.show();
     }
 
     public void run() {
@@ -67,8 +106,8 @@ public class Game extends Canvas implements Runnable {
 
     public synchronized void stop() {
         try {
-            running = false;
             thread.join();
+            running = false;
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
