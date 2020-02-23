@@ -8,6 +8,7 @@ public class HUD {
 
     public static int maxHealth = 100;
     public static int health = maxHealth;
+    public static int level = 1;
 
     public static void clicked(int mx, int my){
 

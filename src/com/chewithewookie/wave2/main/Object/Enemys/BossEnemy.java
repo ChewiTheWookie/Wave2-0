@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class BossEnemy extends GameObject {
 
-    protected boolean alive = false;
+    protected static boolean alive = false;
 
     public BossEnemy(int x, int y, ID id) {
         super(x, y, id);

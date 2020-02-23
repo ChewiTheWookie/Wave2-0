@@ -7,6 +7,8 @@ import com.chewithewookie.wave2.main.STATE.STATE;
 public class Normal {
 
     public static void setup(){
+        Launcher.difficulty = DIFFICULTY.Normal;
+
         Launcher.speed = 5;
         Launcher.diffHealthMultiplier = 1;
         Launcher.gameState = STATE.Game;
@@ -16,6 +18,7 @@ public class Normal {
 
     private static void spawnTable(){
         Spawner.player();
+        Spawner.basicEnemy();
     }
 
 }

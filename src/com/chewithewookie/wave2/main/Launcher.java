@@ -1,5 +1,6 @@
 package com.chewithewookie.wave2.main;
 
+import com.chewithewookie.wave2.main.Difficulty.DIFFICULTY;
 import com.chewithewookie.wave2.main.STATE.STATE;
 
 public class Launcher {
@@ -14,6 +15,8 @@ public class Launcher {
     public static int playerSpeed = 5;
     public static int scale = 1;
     public static int DistUnit = 64;
+
+    public static DIFFICULTY difficulty;
     public static float diffHealthMultiplier;
 
     public static void main(String args[]){

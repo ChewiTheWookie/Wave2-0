@@ -3,6 +3,7 @@ package com.chewithewookie.wave2.main.Object;
 import com.chewithewookie.wave2.main.Launcher;
 import com.chewithewookie.wave2.main.Object.Enemys.*;
 
+import java.awt.*;
 import java.util.Random;
 
 public class Spawner {
@@ -25,6 +26,10 @@ public class Spawner {
 
     public static void bossEnemy(){
 
+    }
+
+    public static void trail(int x, int y , Color color, int size, float life){
+        Handler.addObject(new Trail((int) x, (int) y, ID.Trail, color, size, life));
     }
 
     public static void player(){
