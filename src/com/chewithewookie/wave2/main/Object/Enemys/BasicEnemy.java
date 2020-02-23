@@ -28,19 +28,19 @@ public class BasicEnemy extends GameObject {
                 lifeSpan = 15;
                 break;
         }
+
+        velX = Launcher.speed;
+        velY = Launcher.speed;
     }
 
     public void update() {
-        velX = Launcher.speed * Launcher.scale;
-        velY = Launcher.speed * Launcher.scale;
+        x += velX;
+        y += velY;
 
-        if(Launcher.gameState == STATE.Game){
-            x += velX;
-            y += velY;
-        }
-
-        if (y <= 0 || y + size + 1 >= Launcher.HEIGHT) velY *= -1;
-        if (x <= 0 || x + size + 1 >= Launcher.WIDTH) velX *= -1;
+        if (y <= 0) velY = 5;
+        if (x <= 0) velX = 5;
+        if(y + size + 1 >= Launcher.HEIGHT) velY = -5;
+        if(x + size + 1 >= Launcher.WIDTH) velX = -5;
 
         Spawner.trail((int) x, (int) y, Color.red, size, 0.05f);
 
@@ -57,10 +57,8 @@ public class BasicEnemy extends GameObject {
     }
 
     public void render(Graphics g) {
-        if(Launcher.gameState == STATE.Game){
-            g.setColor(Color.red);
-            g.fillRect((int)x, (int)y, size, size);
-        }
+        g.setColor(Color.red);
+        g.fillRect((int)x, (int)y, size, size);
     }
 
     public Rectangle getBounds() {

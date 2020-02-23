@@ -25,9 +25,8 @@ public class Game extends Canvas implements Runnable {
     }
 
     public void update() {
-        Handler.update();
-
         if(Launcher.gameState == STATE.Game){
+            Handler.update();
             HUD.update();
         }
     }
@@ -44,7 +43,7 @@ public class Game extends Canvas implements Runnable {
         g.setColor(Color.black);
         g.fillRect(0, 0, Launcher.WIDTH, Launcher.HEIGHT);
 
-        Handler.render(g);
+
 
         switch (Launcher.gameState){
             case Menu:
@@ -54,6 +53,7 @@ public class Game extends Canvas implements Runnable {
                 DiffScreen.render(g);
                 break;
             case Game:
+                Handler.render(g);
                 HUD.render(g);
                 break;
             case Shop:

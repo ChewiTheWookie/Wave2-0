@@ -28,19 +28,19 @@ public class FastEnemy extends GameObject {
                 lifeSpan = 10;
                 break;
         }
+
+        velX = Launcher.speed * 2 - Launcher.speed /5 * 2;
+        velY = Launcher.speed * 2 - Launcher.speed /5 * 2;
     }
 
     public void update() {
-        if(Launcher.gameState == STATE.Game){
-            x += velX;
-            y += velY;
-        }
+        x += velX;
+        y += velY;
 
-        velX =  Launcher.speed * 2 - Launcher.speed /5 * 2 * Launcher.scale;
-        velY =  Launcher.speed * 2 - Launcher.speed /5 * 2 * Launcher.scale;
-
-        if (y <= 0 || y + size + 1 >= Launcher.HEIGHT) velY *= -1;
-        if (x <= 0 || x + size + 1 >= Launcher.WIDTH) velX *= -1;
+        if (y <= 0) velY = Launcher.speed * 2 - Launcher.speed /5 * 2;
+        if (x <= 0) velX = Launcher.speed * 2 - Launcher.speed /5 * 2;
+        if(y + size + 1 >= Launcher.HEIGHT) velY = -1 * (Launcher.speed * 2 - Launcher.speed /5 * 2);
+        if(x + size + 1 >= Launcher.WIDTH) velX = -1 * (Launcher.speed * 2 - Launcher.speed /5 * 2);
 
         Spawner.trail((int) x, (int) y, Color.cyan, size, 0.05f);
 
@@ -57,10 +57,8 @@ public class FastEnemy extends GameObject {
     }
 
     public void render(Graphics g) {
-        if(Launcher.gameState == STATE.Game){
-            g.setColor(Color.cyan);
-            g.fillRect((int)x, (int)y, size, size);
-        }
+        g.setColor(Color.cyan);
+        g.fillRect((int)x, (int)y, size, size);
     }
 
     public Rectangle getBounds() {

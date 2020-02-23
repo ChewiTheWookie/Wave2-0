@@ -24,17 +24,15 @@ public class SmartEnemy extends GameObject {
     }
 
     public void update() {
-        if (Launcher.gameState == STATE.Game){
-            x += velX;
-            y += velY;
-        }
+        x += velX;
+        y += velY;
 
         float distanceX = x - player.getX() - 8;
         float distanceY = y - player.getY() - 8;
         float distance = (float) Math.sqrt((x-player.getX()) * (x-player.getX()) + (y-player.getY()) * (y-player.getY()));
 
         if(Launcher.gameState == STATE.Game) {
-            velX = ((-1 / distance) * distanceX);
+            velX += ((-1 / distance) * distanceX);
             velY += ((-1 / distance) * distanceY);
         }
 
@@ -50,10 +48,8 @@ public class SmartEnemy extends GameObject {
     }
 
     public void render(Graphics g) {
-        if(Launcher.gameState == STATE.Game && !BossEnemy.alive){
-            g.setColor(new Color(140, 0, 210));
-            g.fillRect((int)x, (int)y, size, size);
-        }
+        g.setColor(new Color(140, 0, 210));
+        g.fillRect((int)x, (int)y, size, size);
     }
 
     public Rectangle getBounds() {

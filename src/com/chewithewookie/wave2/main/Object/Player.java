@@ -24,10 +24,8 @@ public class Player extends GameObject{
     }
 
     public void render(Graphics g) {
-        if(Launcher.gameState == STATE.Game){
-            g.setColor(Color.white);
-            g.fillRect((int)x, (int)y, playerSize, playerSize);
-        }
+        g.setColor(Color.white);
+        g.fillRect((int)x, (int)y, playerSize, playerSize);
     }
 
     public Rectangle getBounds() {

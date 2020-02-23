@@ -40,7 +40,7 @@ public class Window {
 
         frame.addComponentListener(new ComponentAdapter() {
             public void componentResized(ComponentEvent e) {
-                resize.update(frame.getWidth(), frame.getHeight());
+                resize.update(frame.getWidth() - insets.left - insets.right, frame.getHeight() - insets.top - insets.bottom);
             }
         });
     }
